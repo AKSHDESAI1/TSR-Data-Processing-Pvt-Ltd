@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Profile Form</title>
+        <link rel="stylesheet" href="/css/login.css">
+    </head>
+
+    <body>
+        <div class="logo"><img src="/img/signup.jpg" alt="Logo">
+        </div>
+        <div class="container">
+
+            <h2 style="margin: auto; text-align: center; margin-bottom: 80px;">Upload
+                Proof</h2>
+
+            <form action="" method="post" enctype="multipart/form-data">
+
+                <div style="display: flex; flex-direction: column;">
+                    <h4 style="display: flex; margin-bottom: 30px;">
+                        <div>Upload Payment Screenshot:</div>
+                        <input type="file" id='file0' name="document"
+                            style="display: none;" required>
+    
+                        <label for="file0">
+                            <img src="/img/upload-logo.png"
+                                alt="click to choose File" style="width: 50%;">
+                        </label>
+    
+                    </h4>
+    
+                    <h4 style="display: flex;">
+                        <div>Upload TSR Report:</div>
+                        <input type="file" id='file1' name="document"
+                            style="display: none;" required>
+    
+                        <label for="file1">
+                            <img src="/img/upload-logo.png"
+                                alt="click to choose File"
+                                style="width: 40%; margin-left: 64px;">
+                        </label>
+    
+                    </h4>
+    
+                    <button type="submit"> UPLOAD PROOF </button>
+                </div>
+            </form>
+
+        </div>
+    </body>
+
+</html>
