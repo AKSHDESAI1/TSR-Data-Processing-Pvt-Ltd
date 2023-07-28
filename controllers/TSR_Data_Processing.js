@@ -63,6 +63,20 @@ const Signup = async (req, res) => {
                 });
             }
 
+            if (adhar_number.length != 16) {
+                return res.json({
+                    error:
+                        "Length Of Aadhar Number Must be 16",
+                });
+            }
+
+            if (mobile_no.length != 10) {
+                return res.json({
+                    error:
+                        "Length Of Mobile Number Must be 10",
+                });
+            }
+
             var salt = bcrypt.genSaltSync(10);
             var hash = bcrypt.hashSync(password, salt);
             const data = new User({
@@ -128,4 +142,12 @@ const UploadDocuments = async (req, res) => {
     }
 };
 
-module.exports = { Home, Login, Signup, Profile, UploadDocuments };
+const Logout = async (req, res) => {
+    try {
+        req.session.destroy();
+        return res.redirect("/login");
+    } catch (error) {
+        return res.json({ "error": error.message })
+    }
+};
+module.exports = { Home, Login, Signup, Profile, UploadDocuments, Logout };

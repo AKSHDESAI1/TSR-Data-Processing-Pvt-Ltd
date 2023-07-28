@@ -1,5 +1,5 @@
 const express = require("express");
-const { Home, Login, Signup, Profile, UploadDocuments } = require("../controllers/TSR_Data_Processing.js");
+const { Home, Login, Signup, Profile, UploadDocuments, Logout } = require("../controllers/TSR_Data_Processing.js");
 const multer = require('multer');
 
 const router = express.Router();
@@ -12,6 +12,8 @@ router.post("/login", Login);
 
 router.get("/Signup", Signup);
 router.post("/Signup", Signup);
+
+router.get("/logout", Logout);
 
 // Private Routes 
 router.get("/Profile", Profile);

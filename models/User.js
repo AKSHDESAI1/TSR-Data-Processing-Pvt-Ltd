@@ -14,7 +14,7 @@ const UserSchema = mongoose.Schema({
         required: true
     },
     adhar_number: {
-        type: String,
+        type: Number,
         required: true
     },
     nprc_location: {
