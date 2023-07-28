@@ -9,6 +9,10 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    mobile_no: {
+        type: Number,
+        required: true
+    },
     adhar_number: {
         type: String,
         required: true

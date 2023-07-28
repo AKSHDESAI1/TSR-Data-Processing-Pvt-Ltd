@@ -13,9 +13,10 @@ const Login = async (req, res) => {
     try {
 
         if (req.method == "POST") {
-            const { mobile_no, password } = req.body;
-
-            const user = await User.findOne({ mobile_no: mobile_no });
+            const { number, password } = req.body;
+            console.log('req.body', req.body);
+            const user = await User.findOne({ mobile_no: number });
+            // console.log('user', user);
             if (!user) {
                 return res.json({
                     error: "This Mobile-No is not exits. please try with another one. ",
@@ -45,7 +46,7 @@ const Login = async (req, res) => {
         }
 
     } catch (error) {
-        return res.json({ "error": error.message }); ``
+        return res.json({ "error": error.message });
     }
 };
 
@@ -66,7 +67,7 @@ const Signup = async (req, res) => {
             var hash = bcrypt.hashSync(password, salt);
             const data = new User({
                 name,
-                user_id, adhar_number, nprc_location, address, station_id, district,
+                user_id, mobile_no, adhar_number, nprc_location, address, station_id, district,
                 password: hash
             });
             const data1 = await data.save();
