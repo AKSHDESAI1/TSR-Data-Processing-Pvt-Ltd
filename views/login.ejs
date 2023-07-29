@@ -1,34 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
-    <link rel="stylesheet" href="/css/login.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <link rel="stylesheet" href="/css/login.css">
 </head>
+
 <body>
   <div class="logo"><img src="/img/signup.jpg" alt="Logo">
   </div>
-    <div class="container">
-     
-        <h3>TSR Data Processing Pvt Ltd</h3>
-       <form method="post">
-        
-       
-         <div class="form-group">
-            <label for="number">Mobile No</label>
-            <input type="number" name="number" class="form-control" required> 
-         </div>
-         <div class="form-group">
-            <label for="password">password</label>
-            <input type="password" name="password" class="form-control" required>
-         </div>
-         <div class="Login-register">
-           <p>Don't have an account? <a href="/signup" class="register-link">Register Now</a> </p>
-       
-         </div>
-         <input type="submit" class="btn" value="Login">
-       </form>
-    </div>
+  <div class="container">
+    <% if(error == true) { %>
+    <h3 style="color: red;">Error:- <%= msg %></h3>
+
+    <% } %>
+    <h3>TSR Data Processing Pvt Ltd</h3>
+    <form method="post">
+
+
+      <div class="form-group">
+        <label for="number">Mobile No</label>
+        <input type="number" name="number" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="password">password</label>
+        <input type="password" name="password" class="form-control" required>
+      </div>
+      <div class="Login-register">
+        <p>Don't have an account? <a href="/signup" class="register-link">Register Now</a> </p>
+
+      </div>
+      <input type="submit" class="btn" value="Login">
+    </form>
+  </div>
 </body>
+
 </html>

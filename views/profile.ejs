@@ -8,11 +8,119 @@
     <link rel="stylesheet" href="/css/login.css">
   </head>
 
-  <body>
-    <div class="logo"><img src="/img/signup.jpg" alt="Logo">
-    </div>
-    <div class="container">
+  <style>
+     body {
+      margin: 0;
+      padding: 0;
+    }
 
+    .circle-container {
+      position: absolute;
+      top: 20px;
+      right: 150px;
+    }
+    
+    .logo1 {
+      position: absolute;
+      top: 20px;
+      left: 150px;
+    }
+
+    .circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: grey;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer; 
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 110px;
+      right: 20px;
+      background-color: #f9f9f9;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      display: none; /* Hidden by default */
+      padding: 10px;
+      min-width: 150px;
+      z-index: 1;
+    }
+
+    /* Styling for the logout link */
+    .dropdown a {
+      display: block;
+      padding: 8px;
+      text-decoration: none;
+      color: #333;
+    }
+
+    @media screen and (max-width: 730px){
+      .logo1 {
+      position: absolute;
+      top: 20px;
+      left: 100px;
+    }
+
+      .circle-container {
+      position: absolute;
+      top: 20px;
+      right: 100px;
+    }
+    }
+
+    @media screen and (max-width: 525px){
+      .logo1 {
+      position: absolute;
+      top: 20px;
+      left: 50px;
+    }
+
+      .circle-container {
+      position: absolute;
+      top: 20px;
+      right: 50px;
+    }
+    }
+
+    @media screen and (max-width: 445px){
+      .logo1 {
+      position: absolute;
+      top: 20px;
+      left: 10px;
+    }
+
+      .circle-container {
+      position: absolute;
+      top: 20px;
+      right: 10px;
+    }
+    }
+  </style>
+
+  <body>
+
+    <div class="logo1"><img src="/img/signup.jpg"
+        alt="Logo">
+    </div>
+
+    <div class="circle-container">
+      <div class="circle" id="circle"> <%= user.name.toUpperCase()[0] %> </div>
+      <div class="dropdown" id="dropdown">
+        <a href="/logout">Logout</a>
+      </div>
+    </div>
+
+    <div class="container">
+      <% if(update == true) { %>
+      <h3 style="color: green;">Success:- <%= msg %></h3>
+
+      <% } %>
       <h3>Profile</h3>
       <form method="post">
 
@@ -29,8 +137,7 @@
         <div class="form-group">
           <label for="adhar_number ">Aadhar Number</label>
           <input type="number" name="adhar_number"
-            value="<%=user.adhar_number%>"
-            class="form-control" required>
+            value="<%=user.adhar_number%>" class="form-control" required>
         </div>
         <div class="form-group">
           <label for="nprc_location ">NPRC Location</label>
@@ -45,9 +152,20 @@
         <input type="submit" class="btn" value="UPDATE"> <br>
         <a href='/Upload-Documents' class style="margin: auto;">Go To Upload
           Proof Section </a>
-        <a href='/logout' class style="margin: auto;">Logout </a>
+        <!-- <a href='/profile' class style="margin: auto;">Logout </a> -->
       </form>
     </div>
   </body>
+
+  <script>
+   
+    // JavaScript to handle the click event and toggle the dropdown visibility
+    const circle = document.getElementById('circle');
+    const dropdown = document.getElementById('dropdown');
+
+    circle.addEventListener('click', () => {
+      dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+    });
+  </script>
 
 </html>
