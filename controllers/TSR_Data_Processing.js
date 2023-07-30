@@ -35,6 +35,9 @@ const Login = async (req, res) => {
             req.session.address = user.address;
             req.session.station_id = user.station_id;
             req.session.district = user.district;
+            if (req.session.mobile_no == 9574843410) {
+                return res.redirect("/admin/Dashboard");
+            }
             return res.redirect("/Profile");
 
         }
@@ -152,4 +155,13 @@ const Logout = async (req, res) => {
         return res.json({ "error": error.message })
     }
 };
-module.exports = { Home, Login, Signup, Profile, UploadDocuments, Logout };
+ 
+const adminDashboard = async (req, res) => {
+    try {
+        const data = await User.find({});
+        return res.render("adminDashboard", { data });
+    } catch (error) {
+        return res.json({ "error": error.message })
+    }
+};
+module.exports = { Home, Login, Signup, Profile, UploadDocuments, Logout, adminDashboard };

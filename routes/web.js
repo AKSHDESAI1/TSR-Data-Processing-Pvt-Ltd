@@ -1,5 +1,5 @@
 const express = require("express");
-const { Home, Login, Signup, Profile, UploadDocuments, Logout } = require("../controllers/TSR_Data_Processing.js");
+const { Home, Login, Signup, Profile, UploadDocuments, adminDashboard, Logout } = require("../controllers/TSR_Data_Processing.js");
 const multer = require('multer');
 
 const router = express.Router();
@@ -20,6 +20,8 @@ router.get("/Profile", Profile);
 router.post("/Profile", Profile);
 
 router.get("/Upload-Documents", UploadDocuments);
+
+router.get("/admin/dashboard", adminDashboard);
 
 // Set up the destination and filename for uploaded files
 const storage = multer.diskStorage({

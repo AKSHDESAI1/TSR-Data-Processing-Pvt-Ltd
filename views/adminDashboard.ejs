@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css" />
+
+  <title>AKSH DESAI</title>
+</head>
+
+<body>
+  <div style="min-height: 55px">
+
+  </div>
+  <div class="container-sm">
+    <div class="row table-responsive">
+      <table class="table table-hover table-bordered align-middle border-primary" id="example">
+        <thead class>
+          <tr class="table-dark">
+            <th scope="col">No.</th>
+            <th scope="col">Name.</th>
+            <th scope="col">User_id.</th>
+            <th scope="col">Mobile_no</th>
+            <th scope="col">Adhar_number</th>
+            <th scope="col">Nprc_location</th>
+            <th scope="col">Address</th>
+            <th scope="col">Station_id</th>
+            <th scope="col">District</th>
+            <th scope="col">Payment_screenshot</th>
+            <th scope="col">Tsr_report</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <% data.forEach(function( data, index){ %>
+          <tr class="my-3">
+
+            <th scope="row" class> <%= index + 1 %> </th>
+            <td class><span><%= data.name %></span></td>
+            <td class><span><%= data.user_id %></span></td>
+            <td class><span><%= data.mobile_no %></span></td>
+            <td class><span><%= data.adhar_number %></span></td>
+            <td class><span><%= data.nprc_location %></span></td>
+            <td class><span><%= data.address %></span></td>
+            <td class><span><%= data.station_id %></span></td>
+            <td class><span><%= data.district %></span></td>
+            <td class><span>
+                <% if (data.payment_screenshot) { %>
+                <a href=<%= data.payment_screenshot %> target='_blank'>Click Here for Preview </a>
+                <% } else { %>
+                Not Uploaded by User
+                <% } %>
+              </span></td>
+
+            <td class><span>
+            <% if (data.tsr_report) { %>
+                <a href=<%= data.tsr_report %> target='_blank'>Click Here for Preview </a>
+                <% } else { %>
+                Not Uploaded by User
+                <% } %>
+            </span></td>
+
+            <% }) %>
+            <script>
+
+            </script>
+            <!-- <form action=""></form>
+            <td>
+              <form action="delete//" method="POST"> <input type="hidden" name="csrfmiddlewaretoken" value="WNWgDGpXEYuRKaHlghA8iUHAlqxVUqOcXz9cH8WlNQe0TtfpGBLpEtv74wXJxtB1">
+                <button class="btn btn-danger" type="submit">Delete</button>
+              </form>
+            </td> -->
+            <!-- <a href="delete//" class="btn btn-danger" >Delete</a>-->
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+    $("#example").DataTable({
+      dom: "Bfrtip",
+      buttons: ["copyHtml5", "excelHtml5", "csvHtml5", "pdfHtml5"],
+    });
+  });
+</script>
+
+</html>
