@@ -66,10 +66,10 @@ const Signup = async (req, res) => {
                 });
             }
 
-            if (adhar_number.length != 16) {
+            if (adhar_number.length != 12) {
                 return res.render('signup', {
                     error: true,
-                    msg: "Length Of Aadhar Number Must be 16",
+                    msg: "Length Of Aadhar Number Must be 12",
                 });
             }
 
@@ -155,7 +155,7 @@ const Logout = async (req, res) => {
         return res.json({ "error": error.message })
     }
 };
- 
+
 const adminDashboard = async (req, res) => {
     try {
         const data = await User.find({});
